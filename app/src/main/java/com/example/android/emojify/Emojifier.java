@@ -56,9 +56,20 @@ class Emojifier {
         // If there are no faces detected, show a Toast message
         if(faces.size() == 0){
             Toast.makeText(context, R.string.no_faces_message, Toast.LENGTH_SHORT).show();
+        } else {
+            for(int i = 0; i < faces.size(); i++) {
+                Face face = faces.valueAt(i);
+                getClassifications(face);
+            }
         }
 
         // Release the detector
         detector.release();
+    }
+
+    private static void getClassifications(Face face) {
+        Log.d(LOG_TAG, "smilingProb: " + face.getIsSmilingProbability());
+        Log.d(LOG_TAG, "leftEyeOpenProb: " + face.getIsLeftEyeOpenProbability());
+        Log.d(LOG_TAG, "rightEyeOpenProb: " + face.getIsRightEyeOpenProbability());
     }
 }
