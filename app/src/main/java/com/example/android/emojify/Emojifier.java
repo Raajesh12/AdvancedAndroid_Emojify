@@ -18,6 +18,7 @@ package com.example.android.emojify;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.media.FaceDetector;
 import android.util.Log;
 import android.util.SparseArray;
 import android.widget.Toast;
